@@ -1,0 +1,86 @@
+body {
+    font-family: 'Cormorant Garamond', serif;
+    display:flex;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin: 0;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+}
+
+h1 {
+    font-weight: bold;
+    background-color: darkslategrey;
+    color:lightgray;
+    flex: 1;
+    width: 100%;
+}
+
+body > section {
+    flex: 8;
+    display:flex;
+    flex-direction: column;
+}
+
+body > p {
+    flex: 1;
+}
+
+section > div {
+    display:flex;
+    flex-direction: row;
+}
+
+button.guessBtn {
+    width: 12vmin;
+    height: 6vmin;
+}
+
+div.guess {
+    margin-right: 3vmin;
+    margin-left: 3vmin;
+}
+
+div.guess > button {
+    height: 6vmin;
+    width: 6vmin;
+}
+
+div.reply > button {
+    height: 4vmin;
+    width: 4vmin;
+    margin: 1vmin;
+}
+
+#secret {
+    display:flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+#secret > div {
+    margin-left: 15vmin;
+    margin-right: 3vmin;
+}
+
+#secret > div > button {
+    width: 6vmin;
+    height: 6vmin;
+}
+
+#secret > button {
+    height: 6vmin;
+    width: 18vmin;
+    margin-right: 6vmin;
+}
+
+.perfect {
+    background-color:green;
+}
+
+.close {
+    background-color: #FFBF00;
+}
+
