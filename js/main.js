@@ -1,21 +1,24 @@
 /*----- constants -----*/
-
+let guessColors = ['red','blue','black','green','orange','pink'];
+let replyColors = ['', '#FFBF00', 'green'];
 
 /*----- app's state (variables) -----*/
 let guessIdx;
-let guess = [];
-let reply = [];
-let password;
-let gameState;
+let guess;
+let reply;
+let password = [];
+let gameState = 0;
 
 /*----- cached element references -----*/
 const botMsg = document.querySelector('p');
 const playAgainBtn = document.getElementById('play-again-btn');
 const guessBtns = [...document.querySelectorAll('.guess > button')];
+const replyBtns = [...document.querySelectorAll('.reply > button')];
+const secretBtns = [...document.querySelectorAll('#secret > div > button')];
 
 /*----- event listeners -----*/
-document.querySelector('article').addEventListener('click', handleGuessChooseClick);
-document.querySelectorAll('.guessBtn').addEventListener('click',handleGuessSendClick);
+document.querySelector('body').addEventListener('click', handleGuessChooseClick);
+document.getElementById('guessBtn').addEventListener('click',handleGuessSendClick);
 playAgainBtn.addEventListener('click',init);
 
 /*----- functions -----*/
@@ -24,35 +27,103 @@ function init() {
     for (let i=0; i < 4; i++) {
         password[i] = getRandomInt(0,6);
     }
+    for (let i=0; i<replyBtns.length; i++) {
+        replyBtns[i].style.backgroundColor = '';
+    }
     //Clear all guesses and reply colors.
+    guess = [ //This is messy, but sets up for renderGuess.
+        [-1,-1,-1,-1,],
+        [-1,-1,-1,-1,],
+        [-1,-1,-1,-1,],
+        [-1,-1,-1,-1,],
+        [-1,-1,-1,-1,],
+        [-1,-1,-1,-1,],
+        [-1,-1,-1,-1,],
+        [-1,-1,-1,-1,],
+        [-1,-1,-1,-1,],
+        [-1,-1,-1,-1,],
+    ]
+    botMsg.innerHTML = 'Good luck!'
+    renderGuess();
+    renderReveal();
+    guessIdx = 0;
+    gameState = 0;
 }
 
 function handleGuessChooseClick(evt) {
-    let parent = evt.target.parentNode;
-    let index = Array.prototype.indexOf.call(parent.children, evt.target);
-    guess[index]++;
-    if (guess[index] >= 6) {guess = 0;}
-    renderGuess();
+    if (guessBtns.includes(evt.target) && (gameState === 0)) {
+        let parent = evt.target.parentNode;
+        let index = Array.prototype.indexOf.call(parent.children, evt.target);
+        guess[guessIdx][index]++;
+        if (guess[guessIdx][index] >= 6) {guess[guessIdx][index] = 0;}
+        renderGuess();
+    }
 }
 
-function handleGuessSendClick(evt) {
-    //Check guess against password
-    //set reply to array [2,1,0,0] for perfect, close, miss, miss
-    renderReply();
-    victoryCheck();
+function handleGuessSendClick() {
+    if (!guess[guessIdx].includes(-1) && (gameState === 0)) {
+        reply = [];
+        let passwordDouble = [...password];
+        for (let i = 0; i<4; i++) {
+            if (guess[guessIdx][i] === password[i]) {
+                reply.push(2);
+                passwordDouble[i] = -1;
+            }
+        }
+        for (let i=0; i<4; i++) {
+            if (passwordDouble[i] !== -1) {
+                let closeIdx = passwordDouble.indexOf(guess[guessIdx][i]);
+                if (closeIdx !== -1) {
+                    reply.push(1);
+                    passwordDouble[closeIdx] = -1;
+                }
+            }
+        }
+        while (reply.length<4) {reply.push(0);}
+        renderReply();
+        victoryCheck();
+        guessIdx++;
+    }
 }
 
 function renderGuess() {
-    
+    let i=0;
+    for (let j = 0; j<guess.length; j++) {
+        for (let k=0; k<guess[j].length; k++){
+            guessBtns[i].removeAttribute('class');
+            if (guess[j][k] !== -1) {
+                guessBtns[i].style.backgroundColor = guessColors[guess[j][k]];
+            } else {
+                guessBtns[i].style.backgroundColor = '';
+            }
+            i++;
+        }
+    }
 }
 
 function renderReply() {
+    for (let i = 0; i<reply.length; i++) {
+        replyBtns[4*guessIdx+i].style.backgroundColor = replyColors[reply[i]];
+    }
+}
 
+function renderReveal() {
+    for (let i = 0; i<4; i++) {
+        secretBtns[i].style.backgroundColor = (gameState === 0) ? 0 : guessColors[password[i]];  
+    }
 }
 
 function victoryCheck() {
-    if (guess === password) {gameState=1;}
-    else if (guessIdx >= 10) {gameState=-1;}
+    if (guess[guessIdx].toString() === password.toString()) {
+        gameState=1;
+        botMsg.innerHTML = 'Congratulations, you guessed it!';
+        renderReveal();
+    }
+    else if (guessIdx >= 9) { //One less than the maximum guess because it increments after the function.
+        gameState=-1;
+        botMsg.innerHTML = 'Not quite, try again?'
+        renderReveal();
+    }
 }
 
 function getRandomInt(min, max) { //Inclusive of min, exclusive of max.

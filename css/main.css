@@ -31,9 +31,14 @@ body > p {
 section > div {
     display:flex;
     flex-direction: row;
+    margin-left: 13vmin;
 }
 
-button.guessBtn {
+section > div:first-child {
+    margin-left: 1vmin;
+}
+
+#guessBtn {
     width: 12vmin;
     height: 6vmin;
 }
@@ -61,7 +66,7 @@ div.reply > button {
 }
 
 #secret > div {
-    margin-left: 15vmin;
+    margin-left: 16vmin;
     margin-right: 3vmin;
 }
 
@@ -74,13 +79,5 @@ div.reply > button {
     height: 6vmin;
     width: 18vmin;
     margin-right: 6vmin;
-}
-
-.perfect {
-    background-color:green;
-}
-
-.close {
-    background-color: #FFBF00;
 }
 
