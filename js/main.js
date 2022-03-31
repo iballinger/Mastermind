@@ -45,9 +45,9 @@ function init() {
     ]
     botMsg.innerHTML = 'Good luck!'
     renderGuess();
+    gameState = 0;
     renderReveal();
     guessIdx = 0;
-    gameState = 0;
 }
 
 function handleGuessChooseClick(evt) {
@@ -71,12 +71,10 @@ function handleGuessSendClick() {
             }
         }
         for (let i=0; i<4; i++) {
-            if (passwordDouble[i] !== -1) {
-                let closeIdx = passwordDouble.indexOf(guess[guessIdx][i]);
-                if (closeIdx !== -1) {
-                    reply.push(1);
-                    passwordDouble[closeIdx] = -1;
-                }
+            let closeIdx = passwordDouble.indexOf(guess[guessIdx][i]);
+            if (closeIdx !== -1) {
+                reply.push(1);
+                passwordDouble[closeIdx] = -1;
             }
         }
         while (reply.length<4) {reply.push(0);}
@@ -109,8 +107,9 @@ function renderReply() {
 
 function renderReveal() {
     for (let i = 0; i<4; i++) {
-        secretBtns[i].style.backgroundColor = (gameState === 0) ? 0 : guessColors[password[i]];  
+        secretBtns[i].style.backgroundColor = (gameState === 0) ? '' : guessColors[password[i]];  
     }
+    playAgainBtn.style.visibility = (gameState === 0) ? 'hidden' : 'visible';
 }
 
 function victoryCheck() {
