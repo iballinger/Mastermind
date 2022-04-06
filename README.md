@@ -1,5 +1,5 @@
 <div align="center">
-   <h1>:detective: :sleuth: :spy: MASTERMIND 🕵️</h1>
+   <h1>:detective: MASTERMIND :detective:</h1>
    <h3><a href="https://iballinger.github.io/Mastermind/">Play the Game!</a></h3>
    <h5>Ilerdon Ballinger</h5>                             
    <a href="[github page]" target="_blank">
