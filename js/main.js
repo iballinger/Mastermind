@@ -1,6 +1,6 @@
 /*----- constants -----*/
-let guessColors = ['#ff3f3f','#4141bf','#3f3f3f','#2b7f2b','#a9bf2f','#bf8f97'];
-let replyColors = ['', '#bf961c', '#2b7f2b'];
+let guessColors = ['#ff3f3f','#4141bf','#3f3f3f','#2b7f2b','#a9bf2f','#999999'];
+let replyColors = ['', '#b59f3b', '#538d4e'];
 
 /*----- app's state (variables) -----*/
 let guessIdx;
