@@ -65,14 +65,16 @@ function handleGuessSendClick() {
     if (!guess[guessIdx].includes(-1) && (gameState === 0)) {
         reply = [];
         let passwordDouble = [...password];
+        let guessDouble = [...guess[guessIdx]];
         for (let i = 0; i<4; i++) {
-            if (guess[guessIdx][i] === password[i]) {
+            if (guessDouble[i] === password[i]) {
                 reply.push(2);
                 passwordDouble[i] = -1;
+                guessDouble[i] = null;
             }
         }
         for (let i=0; i<4; i++) {
-            let closeIdx = passwordDouble.indexOf(guess[guessIdx][i]);
+            let closeIdx = passwordDouble.indexOf(guessDouble[i]);
             if (closeIdx !== -1) {
                 reply.push(1);
                 passwordDouble[closeIdx] = -1;
