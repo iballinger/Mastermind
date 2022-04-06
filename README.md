@@ -1,5 +1,5 @@
 <div align="center">
-   <h1>🕵️ MASTERMIND 🕵️</h1>
+   <h1>:detective: :sleuth: :spy: MASTERMIND 🕵️</h1>
    <h3><a href="https://iballinger.github.io/Mastermind/">Play the Game!</a></h3>
    <h5>Ilerdon Ballinger</h5>                             
    <a href="[github page]" target="_blank">
@@ -21,6 +21,7 @@
 
 <details>
 <summary> :art: Wireframes</summary>
+
 | Description | Screenshot |
 |------------ | ------------|
 | <h3 align="center">Game</h3> | <img src="https://github.com/iballinger/Mastermind/blob/main/Wireframe.png?raw=true" width="700"/> |
@@ -28,6 +29,7 @@
 
 <details>
 <summary> :gear: Functionality</summary>
+
 | Description | Screenshot |
 |------------ | ------------|
 | <h3 align="center">Game in Progress</h3> | <img src="https://i.imgur.com/U2FKmNk.png" width="700"/> |
@@ -58,7 +60,7 @@
 
 <details open>   
 <summary>Deployed Link (GitHub Pages)</summary>
-<a href="https://iballinger.github.io/Mastermind/"></a>
+<p><a href="https://iballinger.github.io/Mastermind/">https://iballinger.github.io/Mastermind/</a></p>
 </details>
 
 ## :fast_forward: Next Steps   
