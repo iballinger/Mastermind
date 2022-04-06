@@ -1,6 +1,6 @@
 <div align="center">
    <h1>🕵️ MASTERMIND 🕵️</h1>
-   <h3>[deployed link]</h3>
+   <h3><a href="https://iballinger.github.io/Mastermind/">Play the Game!</a></h3>
    <h5>Ilerdon Ballinger</h5>                             
    <a href="[github page]" target="_blank">
       <img src="https://img.shields.io/badge/-Portfolio:_user.github.io-darkgreen?style=flat&logo=medium"/>
@@ -30,7 +30,7 @@
 <summary> :gear: Functionality</summary>
 | Description | Screenshot |
 |------------ | ------------|
-| <h3 align="center">Game in Progress</h3> | <img src="" width="700"/> |
+| <h3 align="center">Game in Progress</h3> | <img src="https://i.imgur.com/U2FKmNk.png" width="700"/> |
 </details>
 
 ## :computer: Technologies Used
@@ -57,13 +57,13 @@
 </details>
 
 <details open>   
-<summary>Deployed Link (Heroku)</summary>
-<a href="[game link]"></a>
+<summary>Deployed Link (GitHub Pages)</summary>
+<a href="https://iballinger.github.io/Mastermind/"></a>
 </details>
 
 ## :fast_forward: Next Steps   
 
 ### Upcoming Features
 
-- [ ] Make the game more aesthetically pleasing
+- [X] Make the game more aesthetically pleasing
 - [ ] Implement a hint system?
