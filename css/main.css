@@ -8,14 +8,20 @@ body {
     flex-direction: column;
     height: 100vh;
     align-items: center;
+    background-color: #72787f;
+    color: #ffc0cb;
 }
 
-h1 {
+header {
     font-weight: bold;
     background-color: darkslategrey;
     color:lightgray;
+    text-shadow: 0 0 5px #4c657f;
     flex: 1;
     width: 100%;
+    margin: 0 0 3vmin 0;
+    font-size: 6vmin;
+    padding: 2vmin 0 1vmin 0;
 }
 
 body > section {
@@ -25,6 +31,16 @@ body > section {
 }
 
 body > p {
+    flex: 1;
+    font-size: 3vmin;
+    color: lightgray;
+    text-shadow: 0 0 3px black;
+    font-weight: bolder;
+}
+
+#secret {
+    display:flex;
+    flex-direction: row;
     flex: 1;
 }
 
@@ -41,6 +57,7 @@ section > div:first-child {
 #guessBtn {
     width: 12vmin;
     height: 6vmin;
+    border-radius: 5%;
 }
 
 div.guess {
@@ -51,18 +68,14 @@ div.guess {
 div.guess > button {
     height: 6vmin;
     width: 6vmin;
+    border-radius: 0;
 }
 
 div.reply > button {
     height: 4vmin;
     width: 4vmin;
     margin: 1vmin;
-}
-
-#secret {
-    display:flex;
-    flex-direction: row;
-    flex: 1;
+    border-radius: 50%;
 }
 
 #secret > div {
@@ -73,11 +86,13 @@ div.reply > button {
 #secret > div > button {
     width: 6vmin;
     height: 6vmin;
+    border-radius: 0%;
 }
 
 #secret > button {
     height: 6vmin;
     width: 18vmin;
     margin-right: 6vmin;
+    border-radius: 5%;
 }
 

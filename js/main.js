@@ -1,6 +1,6 @@
 /*----- constants -----*/
-let guessColors = ['red','blue','black','green','orange','pink'];
-let replyColors = ['', '#FFBF00', 'green'];
+let guessColors = ['#ff3f3f','#4141bf','#3f3f3f','#2b7f2b','#a9bf2f','#bf8f97'];
+let replyColors = ['', '#bf961c', '#2b7f2b'];
 
 /*----- app's state (variables) -----*/
 let guessIdx;
@@ -8,7 +8,7 @@ let guess;
 let reply;
 let password = [];
 let gameState = 0;
-
+   
 /*----- cached element references -----*/
 const botMsg = document.querySelector('p');
 const playAgainBtn = document.getElementById('play-again-btn');
@@ -31,17 +31,18 @@ function init() {
         replyBtns[i].style.backgroundColor = '';
     }
     //Clear all guesses and reply colors.
-    guess = [ //This is messy, but sets up for renderGuess.
-        [-1,-1,-1,-1,],
-        [-1,-1,-1,-1,],
-        [-1,-1,-1,-1,],
-        [-1,-1,-1,-1,],
-        [-1,-1,-1,-1,],
-        [-1,-1,-1,-1,],
-        [-1,-1,-1,-1,],
-        [-1,-1,-1,-1,],
-        [-1,-1,-1,-1,],
-        [-1,-1,-1,-1,],
+    // guess = new Array(10).fill(new Array(4).fill(-1));
+    guess = [
+        [-1,-1,-1,-1],
+        [-1,-1,-1,-1],
+        [-1,-1,-1,-1],
+        [-1,-1,-1,-1],
+        [-1,-1,-1,-1],
+        [-1,-1,-1,-1],
+        [-1,-1,-1,-1],
+        [-1,-1,-1,-1],
+        [-1,-1,-1,-1],
+        [-1,-1,-1,-1]
     ]
     botMsg.innerHTML = 'Good luck!'
     renderGuess();
