@@ -52,7 +52,7 @@
 <li>Click on the larger boxes to choose which of six colors to guess for each position.</li>
 <li>Click on "Guess" to lock in your guess and get a response from the computer.</li>
 <li>The computer signifies the correct color in the correct position with a green response.</li>
-<li>The computer signifies the correct color in the wrong position with a green response.</li>
+<li>The computer signifies the correct color in the wrong position with a yellow response.</li>
 <li>You win if you perfectly match the computer's secret code.</li>
 <li>You lose if you don't match the computer's code within 10 guesses.</li>
 </ol>
