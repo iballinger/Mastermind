@@ -31,7 +31,6 @@ function init() {
         replyBtns[i].style.backgroundColor = '';
     }
     //Clear all guesses and reply colors.
-    // guess = new Array(10).fill(new Array(4).fill(-1));
     guess = [
         [-1,-1,-1,-1],
         [-1,-1,-1,-1],
